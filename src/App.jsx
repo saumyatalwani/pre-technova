@@ -73,11 +73,11 @@ function App() {
   const handleSelect = (item, type) => {
     if (type === 'source') {
       setSelectedSource([item.geometry.location.lng, item.geometry.location.lat]);
-      setSource('');
+      setSource(item.terms[0].value);
       setSrcResults([]);
     } else {
       setSelectedDestination([item.geometry.location.lng, item.geometry.location.lat]);
-      setDestination('');
+      setDestination(item.terms[0].value);
       setDestResults([]);
     }
   };
@@ -157,10 +157,16 @@ function App() {
   useEffect(() => {
     const fetchProbablity = async () => {
 
+        const weather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${selectedDestination[1]}&lon=${selectedDestination[0]}&appid=${import.meta.env.VITE_WEATHER_KEY}`)
+
+        const temp = weather.data.main.temp
+        const visibility = weather.data.visibility
+        const rain = weather.data.weather.main==="Rain"
+
         //const probablity = await axios.get('');
 
 
-        map.addSource('probablity', {
+        olaMapRef.current.addSource('probablity', {
             type: 'geojson',
             data: {
               type: 'FeatureCollection',
@@ -179,7 +185,7 @@ function App() {
           })
         
           // Add the heatmap layer
-          map.addLayer({
+          olaMapRef.current.addLayer({
             id: 'prob-layer',
             type: 'heatmap',
             source: 'probablity',
@@ -224,7 +230,7 @@ function App() {
     }
 
     fetchProbablity()
-  },[])
+  },[selectedSource,selectedDestination])
 
   return (
     <>
