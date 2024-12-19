@@ -154,6 +154,10 @@ function App() {
     fetchRouteData();
   }, [selectedSource, selectedDestination]);
 
+  const [features, setFeatures] = useState([14, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  const [prediction, setPrediction] = useState(null);
+
+
   useEffect(() => {
     const fetchProbablity = async () => {
 
@@ -163,7 +167,36 @@ function App() {
         const visibility = weather.data.visibility
         const rain = weather.data.weather.main==="Rain"
 
-        //const probablity = await axios.get('');
+        var weatherdt = 7
+        if (weather.data.weather.main=='Cloudy') weatherdt = 0
+        else if (weather.data.weather.main=='Fog') weatherdt = 1
+        else if (weather.data.weather.main=='Rain') weatherdt = 4
+        else if (weather.data.weather.main=='Snow') weatherdt = 6
+        else if (weather.data.weather.main=='Winds') weatherdt = 8
+        
+        const time = new Date()
+
+        const age_band_driver =  0 //from signup
+        const gender = 0 //0 for male, 1 for female ( from signup )
+        const driving_exp = 4 //in years (from signup)
+        const type_of_vehicle=1 //from signup
+        const area = Math.random()*13
+        const lanes = 2
+        const junction = Math.random()*7
+        const road_surface= Math.random()*4
+        const road_conditions = rain ? 3 : 0;
+        const light_conditions= time.getHours()<17 ? 3 : time.getHours()>=17 && time.getHours()<19 ? 1 : 0;
+        const vehicle_mov= Math.random()*2;
+
+        setFeatures([time.getHours(),time.getDay(),age_band_driver,gender,driving_exp,type_of_vehicle,area,lanes,junction,road_surface,road_conditions,light_conditions,vehicle_mov])
+
+        const probablity = await axios.post('http://127.0.0.1:5000/predict',{
+            features : features
+        });
+
+        setPrediction(response.data.prediction);
+
+
 
 
         olaMapRef.current.addSource('probablity', {
@@ -171,6 +204,8 @@ function App() {
             data: {
               type: 'FeatureCollection',
               features: [
+                //add prediction output here in the below given format
+                /*
              {
                 type: 'Feature',
                 geometry: { type: 'Point', coordinates: [77.5946, 12.9716] },
@@ -180,7 +215,7 @@ function App() {
                 type: 'Feature',
                 geometry: { type: 'Point', coordinates: [77.6012, 12.9243] },
                 properties: { intensity: 6 },
-              },]
+              },*/]
             }
           })
         
