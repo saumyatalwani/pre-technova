@@ -1,0 +1,129 @@
+Column: Day_of_week
+  Friday -> 0
+  Monday -> 1
+  Saturday -> 2
+  Sunday -> 3
+  Thursday -> 4
+  Tuesday -> 5
+  Wednesday -> 6
+
+Column: Age_band_of_driver
+  18-30 -> 0
+  31-50 -> 1
+  Over 51 -> 2
+  Under 18 -> 3
+  Unknown -> 4
+
+Column: Sex_of_driver
+  Female -> 0
+  Male -> 1
+  Unknown -> 2
+
+Column: Driving_experience
+  1-2yr -> 0
+  2-5yr -> 1
+  5-10yr -> 2
+  Above 10yr -> 3
+  Below 1yr -> 4
+  No Licence -> 5
+  unknown -> 6
+
+Column: Type_of_vehicle
+  Automobile -> 0
+  Bajaj -> 1
+  Bicycle -> 2
+  Long lorry -> 3
+  Lorry (11?40Q) -> 4
+  Lorry (41?100Q) -> 5
+  Motorcycle -> 6
+  Other -> 7
+  Pick up upto 10Q -> 8
+  Public (12 seats) -> 9
+  Public (13?45 seats) -> 10
+  Public (> 45 seats) -> 11
+  Ridden horse -> 12
+  Special vehicle -> 13
+  Stationwagen -> 14
+  Taxi -> 15
+  Turbo -> 16
+
+Column: Area_accident_occured
+    Market areas -> 0
+    Recreational areas -> 1
+   Church areas -> 2
+   Hospital areas -> 3
+   Industrial areas -> 4
+   Outside rural areas -> 5
+  Office areas -> 6
+  Other -> 7
+  Recreational areas -> 8
+  Residential areas -> 9
+  Rural village areas -> 10
+  Rural village areasOffice areas -> 11
+  School areas -> 12
+  Unknown -> 13
+
+Column: Lanes_or_Medians
+  Double carriageway (median) -> 0
+  One way -> 1
+  Two-way (divided with broken lines road marking) -> 2
+  Two-way (divided with solid lines road marking) -> 3
+  Undivided Two way -> 4
+  Unknown -> 5
+  other -> 6
+
+Column: Types_of_Junction
+  Crossing -> 0
+  No junction -> 1
+  O Shape -> 2
+  Other -> 3
+  T Shape -> 4
+  Unknown -> 5
+  X Shape -> 6
+  Y Shape -> 7
+
+Column: Road_surface_type
+  Asphalt roads -> 0
+  Asphalt roads with some distress -> 1
+  Earth roads -> 2
+  Gravel roads -> 3
+  Other -> 4
+
+Column: Road_surface_conditions
+  Dry -> 0
+  Flood over 3cm. deep -> 1
+  Snow -> 2
+  Wet or damp -> 3
+
+Column: Light_conditions
+  Darkness - lights lit -> 0
+  Darkness - lights unlit -> 1
+  Darkness - no lighting -> 2
+  Daylight -> 3
+
+Column: Weather_conditions
+  Cloudy -> 0
+  Fog or mist -> 1
+  Normal -> 2
+  Other -> 3
+  Raining -> 4
+  Raining and Windy -> 5
+  Snow -> 6
+  Unknown -> 7
+  Windy -> 8
+
+Column: Vehicle_movement
+  Entering a junction -> 0
+  Getting off -> 1
+  Going straight -> 2
+  Moving Backward -> 3
+  Other -> 4
+  Overtaking -> 5
+  Parked -> 6
+  Reversing -> 7
+  Stopping -> 8
+  Turnover -> 9
+  U-Turn -> 10
+  Unknown -> 11
+  Waiting to go -> 12
+
