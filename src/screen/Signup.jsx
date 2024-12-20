@@ -5,7 +5,6 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
   });
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
@@ -21,7 +20,6 @@ const Signup = () => {
     const newErrors = {};
     if (!formData.name) newErrors.name = "Name is required.";
     if (!formData.email) newErrors.email = "Email is required.";
-    if (!formData.password) newErrors.password = "Password is required.";
     return newErrors;
   };
 
