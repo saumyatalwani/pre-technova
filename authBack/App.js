@@ -18,6 +18,13 @@ app.use(bodyParser.json()); // Parse incoming JSON
 app.use(morgan('combined')); // Logging requests to the console
 
 // Routes
+
+// echo request body
+app.use((req, res, next) => {
+  console.log(req.body);
+  next();
+});
+
 app.use('/api/v1/', apiRoutes);
 
 // Catch 404 errors

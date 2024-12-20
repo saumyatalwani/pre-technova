@@ -34,11 +34,11 @@ const SignIn = () => {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/api/signin",
+        "http://127.0.0.1:3000/api/v1/auth/login",
         formData
       );
       setSuccessMessage("SignIn successful!");
-      setFormData({ name: "", email: "", password: "" });
+      setFormData({ email: "", password: "" });
       setErrors({});
     } catch (error) {
       setErrors({
