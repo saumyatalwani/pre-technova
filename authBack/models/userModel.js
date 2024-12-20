@@ -11,11 +11,6 @@ const userSchema = new Schema({
         type: String,
         required: [true, 'Password is required']
     },
-    userDetail: {
-        type: Boolean,
-        default: false,
-        required: true
-    },
 
     // User details
     name:{
@@ -23,28 +18,23 @@ const userSchema = new Schema({
         required: true
     },
 
-    // age [enum: 0, 1, 2, 3, 4]
-    // sex [enum: 0, 1, 2]
-    // experience [enum: 0, 1, 2, 3, 4, 5, 6]
-    // type of vehicle [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12, 13, 14, 15, 16]
-
     age:{
-        type: String,
+        type: Number,
         required: true
     },
 
     sex:{
-        type: String,
+        type: Number,
         required: true
     },
 
     experience:{
-        type: String,
+        type: Number,
         required: true
     },
 
     vehicle:{
-        type: String,
+        type: Number,
         required: true
     },
     
