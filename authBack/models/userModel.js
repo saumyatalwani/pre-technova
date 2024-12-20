@@ -29,22 +29,22 @@ const userSchema = new Schema({
     // type of vehicle [enum: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,12, 13, 14, 15, 16]
 
     age:{
-        type: Number,
+        type: String,
         required: true
     },
 
     sex:{
-        type: Number,
+        type: String,
         required: true
     },
 
     experience:{
-        type: Number,
+        type: String,
         required: true
     },
 
     vehicle:{
-        type: Number,
+        type: String,
         required: true
     },
     
