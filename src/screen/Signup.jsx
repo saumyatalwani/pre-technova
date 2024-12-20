@@ -31,8 +31,10 @@ const Signup = () => {
       return;
     }
 
+    console.log(formData);
+
     try {
-      const response = await axios.post("http://127.0.0.1:8000/api/signup", formData);
+      const response = await axios.post("http://localhost:5001/api/v1/auth/register", formData);
       setSuccessMessage("User Data Entered Successfully!");
       setFormData({ name: "", email: ""});
       setErrors({});
