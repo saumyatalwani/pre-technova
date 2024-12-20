@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import joblib
 import numpy as np
 
 app = Flask(__name__)
+
+# Enable CORS for all origins
+CORS(app)
 
 # Load the model
 model = joblib.load('ocvsm.pkl')

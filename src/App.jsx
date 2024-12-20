@@ -177,9 +177,9 @@ function App() {
         const time = new Date()
 
         const age_band_driver =  0 //from signup
-        const gender = 0 //0 for male, 1 for female ( from signup )
-        const driving_exp = 4 //in years (from signup)
-        const type_of_vehicle=1 //from signup
+        const gender = 1//0 for male, 1 for female ( from signup )
+        const driving_exp = 0 //in years (from signup)
+        const type_of_vehicle=0 //from signup
         const area = Math.random()*13
         const lanes = 2
         const junction = Math.random()*7
@@ -194,10 +194,10 @@ function App() {
             features : features
         });
 
-        setPrediction(response.data.prediction);
+        setPrediction(probablity.data.prediction);
 
 
-
+        /*
 
         olaMapRef.current.addSource('probablity', {
             type: 'geojson',
@@ -215,7 +215,7 @@ function App() {
                 type: 'Feature',
                 geometry: { type: 'Point', coordinates: [77.6012, 12.9243] },
                 properties: { intensity: 6 },
-              },*/]
+              },]
             }
           })
         
@@ -261,8 +261,10 @@ function App() {
               'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9, 0],
             },
           })
-       
+      */
     }
+
+    
 
     fetchProbablity()
   },[selectedSource,selectedDestination])
@@ -328,6 +330,14 @@ function App() {
           Selected Destination: {selectedDestination[0]} , {selectedDestination[1]}
         </h3>
       </div>
+
+      {
+          prediction !== null ?
+        (<h3>
+          Accident is {prediction==1 ? "Possible" : "Not Possible" }
+        </h3>) : null
+
+        }
 
       <div id="map" className="h-[75vh] w-[80vw]"></div>
     </>
