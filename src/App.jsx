@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import extractPath from './extractPaths';
 import Signup from './screen/Signup';
 import axios from 'axios';
+import SignIn from './screen/Signin';
 
 // function App() {
 
@@ -337,7 +338,7 @@ import axios from 'axios';
 function App() {
   return (
     <div className="App">
-      <Signup />
+      <SignIn />
     </div>
   );
 }

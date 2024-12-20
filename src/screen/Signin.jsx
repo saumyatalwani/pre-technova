@@ -3,7 +3,6 @@ import axios from "axios";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({
-    name: "",
     email: "",
     password: "",
   });
@@ -51,7 +50,7 @@ const SignIn = () => {
     <div className="flex justify-center items-center bg-gray">
       <div className="w-80 max-w-lg bg-white shadow-md rounded-lg p-12">
         <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
-          Sign Up
+          Sign in
         </h2>
         {errors.api && (
           <p className="text-red-500 text-sm mb-4">{errors.api}</p>
@@ -60,25 +59,6 @@ const SignIn = () => {
           <p className="text-green-500 text-sm mb-4">{successMessage}</p>
         )}
         <form onSubmit={handleSubmit}>
-          <div className="mb-4">
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
-            >
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 text-gray-900 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            />
-            {errors.name && (
-              <p className="text-red-500 text-xs mt-1">{errors.name}</p>
-            )}
-          </div>
           <div className="mb-4">
             <label
               htmlFor="email"
@@ -121,7 +101,7 @@ const SignIn = () => {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
           >
-            Sign Up
+            Sign in
           </button>
         </form>
       </div>
