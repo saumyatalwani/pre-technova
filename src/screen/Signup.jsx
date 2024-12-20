@@ -5,6 +5,11 @@ const Signup = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    password: "", 
+    age: "0",
+    sex: "0",
+    experience: "0",
+    vehicle: "0",
   });
   const [errors, setErrors] = useState({});
   const [successMessage, setSuccessMessage] = useState("");
@@ -31,12 +36,28 @@ const Signup = () => {
       return;
     }
 
-    console.log(formData);
-
     try {
-      const response = await axios.post("http://localhost:5001/api/v1/auth/register", formData);
+      const dataToSend = {
+        name: formData.name,
+        email: formData.email,
+        password: formData.password,
+        age: parseInt(formData.age, 10),
+        sex: parseInt(formData.sex, 10),
+        experience: parseInt(formData.experience, 10),
+        vehicle: parseInt(formData.vehicle, 10),
+      };
+
+      const response = await axios.post("http://127.0.0.1:3000/api/v1/auth/register", dataToSend);
       setSuccessMessage("User Data Entered Successfully!");
-      setFormData({ name: "", email: ""});
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+        age: "0",
+        sex: "0",
+        experience: "0",
+        vehicle: "0",
+      });
       setErrors({});
     } catch (error) {
       setErrors({ api: error.response?.data?.message || "Something went wrong!" });
@@ -78,6 +99,24 @@ const Signup = () => {
             />
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
+
+          <div className="mb-6">
+            <label
+              htmlFor="password"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="mt-1 block w-full px-4 py-2 bg-white border border-gray-300 text-gray-900 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            />
+          </div>
+
           <div className="mb-4">
             <label htmlFor="age" className="block text-sm font-medium text-gray-700">
               Age of Driver
@@ -111,7 +150,6 @@ const Signup = () => {
               <option value="1">Female</option>
               <option value="2">Unknown</option>
             </select>
-
           </div>
           <div className="mb-4">
             <label htmlFor="experience" className="block text-sm font-medium text-gray-700">
@@ -133,7 +171,7 @@ const Signup = () => {
               <option value="6">Unknown</option>
             </select>
           </div>
-           <div className="mb-4">
+          <div className="mb-4">
             <label htmlFor="vehicle" className="block text-sm font-medium text-gray-700">
               Type of Vehicle
             </label>
@@ -162,7 +200,7 @@ const Signup = () => {
               <option value="15">Taxi</option>
               <option value="16">Turbo</option>
             </select>
-           </div>
+          </div>
           <button
             type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 focus:outline-none"
